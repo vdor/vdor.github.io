@@ -535,7 +535,10 @@
       var qrCodeEl = document.getElementById("qrcode");
       var qr = new QRCode(qrCodeEl);
 
-      qr.makeCode(`https://covid.com/covid-cert/verify/?fn=${firstName[0]}&ln=${lastName[0]}&mn=${middleName[0]}&fnl=${firstName.length}&mnl=${middleName.length}&lnl=${lastName.length}&pass_start=${passStart}&pass_end=${passEnd}&birthdate=${birthDay}&id=${id}&lang=ru`);
+      var getUrl = window.location;
+      var baseUrl = getUrl .protocol + "//" + getUrl.host + "/";
+
+      qr.makeCode(`${baseUrl}covid-cert.html?fn=${firstName[0]}&ln=${lastName[0]}&mn=${middleName[0]}&fnl=${firstName.length}&mnl=${middleName.length}&lnl=${lastName.length}&pass_start=${passStart}&pass_end=${passEnd}&birthdate=${birthDay}&id=${id}&lang=ru`);
 
       qrCodeEl.getElementsByTagName('img')[0].remove();
 
