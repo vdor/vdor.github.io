@@ -522,8 +522,6 @@
       var passStart = params['pass_start'];
       var passEnd = params['pass_end'];
 
-      var id = document.getElementById('id');
-
       var username = userNameEl.innerText = lastName + ' ' + firstName + ' ' + middleName;
       var birthText = 'Дата рождения: ' + birthDay;
       var sexText = 'Пол: ' + sex;
@@ -537,6 +535,8 @@
 
       var getUrl = window.location;
       var baseUrl = getUrl .protocol + "//" + getUrl.host + "/";
+
+      var id = params['id'];
 
       qr.makeCode(`${baseUrl}covid-cert.html?fn=${firstName[0]}&ln=${lastName[0]}&mn=${middleName[0]}&fnl=${firstName.length}&mnl=${middleName.length}&lnl=${lastName.length}&pass_start=${passStart}&pass_end=${passEnd}&birthdate=${birthDay}&id=${id}&lang=ru`);
 
